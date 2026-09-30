@@ -72,6 +72,8 @@ its own tab; a normal tab became `about:blank`, and Back went to the page before
 - `gh repo create RT567/put-it-in-the-backpack --public --source . --push`
 - Legacy Pages from `main` `/`: `gh api -X POST repos/RT567/put-it-in-the-backpack/pages -f 'source[branch]=main' -f 'source[path]=/'`
 - Check a build: `gh api repos/RT567/put-it-in-the-backpack/pages/builds/latest --jq .status`
+  (a push during a build cancels it and the builds API then reports that build as `errored`;
+  `gh run list -R RT567/put-it-in-the-backpack` shows the real state, and `builds/latest` can lag).
 - Pushing to `main` redeploys. The landing page (`RT567.github.io`) is maintained separately; don't
   edit it from here.
 
