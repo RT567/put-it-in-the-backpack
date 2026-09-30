@@ -1,1 +1,2 @@
 {"id":"int-85155489","kind":"field_change","created_at":"2026-09-30T02:20:59.942292217Z","actor":"Rob","issue_id":"put-it-in-the-backpack-x20","extra":{"field":"status","new_value":"in_progress","old_value":"open"}}
+{"id":"int-c75b8af3","kind":"field_change","created_at":"2026-09-30T02:26:59.873575226Z","actor":"Rob","issue_id":"put-it-in-the-backpack-x20","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Built, verified in Chrome (desktop + phone), deployed to https://rt567.github.io/put-it-in-the-backpack/"}}
