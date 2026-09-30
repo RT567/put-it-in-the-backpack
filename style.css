@@ -1,35 +1,11 @@
-:root {
-  --paper: #f7ecd6;
-  --paper-dot: #e9d9b8;
-  --ink: #2b211c;
-  --pack: #e4513b;
-  --pack-dark: #c53c2a;
-  --pocket: #f3b43b;
-  --brass: #f6d36b;
-  --ball: #ee8a34;
-  --shoe: #3aa39b;
-  --sole: #fffaf0;
-  --mug: #fbf3e2;
-  --stripe: #4f7fd0;
-  --coffee: #6d3f22;
-  --jeans: #4769b0;
-  --shirt: #86b85a;
-  --jumper: #e9899f;
-  color-scheme: light;
-}
-
 * { box-sizing: border-box; }
 
 html, body { margin: 0; height: 100%; }
 
 body {
-  background-color: var(--paper);
-  background-image: radial-gradient(var(--paper-dot) 1.6px, transparent 1.8px);
-  background-size: 22px 22px;
-  color: var(--ink);
-  font-family: "Gaegu", "Comic Sans MS", cursive;
+  background: #ffff66;
+  color: #000;
   overflow: hidden;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .scene {
@@ -44,111 +20,48 @@ body {
     "cup   pack    clothes";
   align-items: center;
   justify-items: center;
-  padding: 16px 24px 28px;
-  max-width: 1100px;
+  padding: 10px 16px;
+  max-width: 1700px;
   margin: 0 auto;
 }
 
-.title { grid-area: title; text-align: center; }
+.title { grid-area: title; justify-self: start; }
+h1 { margin: 8px 0 0; color: #00f; text-decoration: underline; }
+.title p { margin: 0 0 4px; }
 
-h1 {
-  font-family: "Bagel Fat One", "Arial Rounded MT Bold", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.7rem, 4.4vw, 3.2rem);
-  line-height: 1;
-  margin: 6px 0 4px;
-  color: var(--pack);
-  -webkit-text-stroke: 1.5px var(--ink);
-  paint-order: stroke fill;
-  text-shadow: 3px 3px 0 var(--ink);
-  transform: rotate(-1.5deg);
-}
-
-.title p { margin: 0; font-size: clamp(1.1rem, 2vw, 1.4rem); opacity: .75; }
-
-.backpack {
-  grid-area: pack;
-  width: min(34vw, 58vh, 380px);
-}
-.backpack svg { display: block; width: 100%; height: auto; overflow: visible; }
+.backpack { grid-area: pack; width: min(34vw, 62vh); }
+.backpack svg, .item svg { display: block; width: 100%; height: auto; }
 
 .item {
-  appearance: none;
   background: none;
   border: 0;
-  padding: 10px;
-  margin: 0;
+  padding: 6px;
   cursor: pointer;
-  border-radius: 24px;
-  touch-action: manipulation;
 }
-/* the drawing bobs, the button (hit target) stays put */
-.item svg {
-  display: block; width: 100%; height: auto; overflow: visible;
-  transition: transform .15s ease;
-  animation: bob 3.4s ease-in-out infinite;
-  animation-delay: var(--d, 0s);
-}
-.item:hover svg {
-  animation: bob 3.4s ease-in-out infinite, wiggle .5s ease-in-out;
-  animation-delay: var(--d, 0s), 0s;
-  transform: scale(1.06);
-}
-.item:active svg { transform: scale(.95); }
-.item:focus-visible { outline: 4px dashed var(--ink); outline-offset: 2px; }
 
-/* Put in the backpack = gone. Instantly. No ceremony. Layout doesn't shift. */
+/* Put in the backpack = gone. Layout doesn't shift. */
 .item.gone { visibility: hidden; }
 
-.ball    { grid-area: ball;    rotate: -6deg; --d: -.4s;   width: min(18vw, 26vh, 200px); }
-.shoes   { grid-area: shoes;   rotate: 4deg;  --d: -1.3s; width: min(25vw, 32vh, 270px); }
-.cup     { grid-area: cup;     rotate: 5deg;  --d: -2.1s; width: min(15vw, 21vh, 160px); }
-.clothes { grid-area: clothes; rotate: -3deg; --d: -2.8s; width: min(26vw, 34vh, 280px); }
+.ball    { grid-area: ball;    width: min(17vw, 26vh); }
+.shoes   { grid-area: shoes;   width: min(24vw, 32vh); }
+.cup     { grid-area: cup;     width: min(14vw, 22vh); }
+.clothes { grid-area: clothes; width: min(25vw, 34vh); }
 
-@keyframes bob {
-  0%, 100% { translate: 0 0; }
-  50%      { translate: 0 -7px; }
-}
-@keyframes wiggle {
-  0%, 100% { rotate: 0deg; }
-  25%      { rotate: -5deg; }
-  75%      { rotate: 5deg; }
-}
-
-.steam path { animation: steam 2.6s ease-in-out infinite; }
-.steam path + path { animation-delay: -1.3s; }
-@keyframes steam {
-  0%, 100% { translate: 0 0; opacity: .9; }
-  50%      { translate: 2px -4px; opacity: .35; }
-}
-
-/* The congratulations. */
 .toast {
+  display: none;
   position: fixed;
   left: 50%;
-  bottom: max(22px, env(safe-area-inset-bottom));
-  translate: -50% calc(100% + 80px);
-  rotate: -2deg;
+  bottom: 20px;
+  transform: translateX(-50%);
   width: max-content;
   max-width: calc(100vw - 32px);
-  background: var(--brass);
-  border: 4px solid var(--ink);
-  border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--ink);
-  padding: 10px 22px 12px;
-  text-align: center;
-  pointer-events: none;
-  transition: translate .25s cubic-bezier(.3, 1.6, .5, 1);
+  background: #c0c0c0;
+  border: 3px outset #fff;
+  padding: 10px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
 }
-.toast.show { translate: -50% 0; }
-.toast strong {
-  display: block;
-  font-family: "Bagel Fat One", "Arial Rounded MT Bold", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.5rem, 3.4vw, 2.2rem);
-  line-height: 1.1;
-}
-.toast span { font-size: clamp(1.2rem, 2.4vw, 1.6rem); line-height: 1.1; }
+.toast.show { display: block; }
 
 /* Phones / tall screens: two items above the backpack, two below. */
 @media (max-aspect-ratio: 1/1) {
@@ -160,18 +73,13 @@ h1 {
       "ball  shoes"
       "pack  pack"
       "cup   clothes";
-    padding: 14px 16px 20px;
   }
+  h1 { font-size: 1.6em; }
   .backpack { width: min(62vw, 38vh, 380px); }
   .ball    { width: min(32vw, 17vh, 180px); }
-  .shoes   { width: min(44vw, 22vh, 260px); }
-  .cup     { width: min(28vw, 15vh, 160px); }
-  .clothes { width: min(46vw, 24vh, 270px); }
-  /* drop the toast in from the top so it doesn't sit on the bottom row */
-  .toast { bottom: auto; top: max(14px, env(safe-area-inset-top)); translate: -50% calc(-100% - 80px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .item svg, .steam path, .item:hover svg { animation: none; }
-  .toast { transition: none; }
+  .shoes   { width: min(42vw, 21vh, 250px); }
+  .cup     { width: min(28vw, 15vh, 150px); }
+  .clothes { width: min(44vw, 22vh, 260px); }
+  /* toast at the top on phones so it doesn't cover the bottom row */
+  .toast { bottom: auto; top: 10px; }
 }

@@ -1,5 +1,8 @@
 # put-it-in-the-backpack — "Put It In The Backpack". What it is, how it's built, how it's deployed
 
+> **Superseded styling:** the look described under "Design decisions" was replaced the same day by a
+> deliberately ugly version. See `02-ugly-restyle-2026-09-30.md`. Behaviour, clothes→close and deployment are unchanged.
+
 Live: https://rt567.github.io/put-it-in-the-backpack/  ·  Repo: github.com/RT567/put-it-in-the-backpack
 (branch `main`, legacy Pages serving `/`). Local: `~/silly/put-it-in-the-backpack`.
 

@@ -9,7 +9,7 @@ document.querySelectorAll('[data-item]').forEach((item) => {
     item.disabled = true;
 
     // fresh text each time so screen readers announce it again
-    toast.innerHTML = '<strong>Congratulations!</strong> <span>You put an item into the backpack.</span>';
+    toast.textContent = 'Congratulations! You put an item into the backpack.';
     // restart the slide-up even if it's already showing
     toast.classList.remove('show');
     void toast.offsetWidth;
