@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "put_it_in_the_backpack",
+  "project_id": "7cf564d1-0bda-4280-b354-b3a5eb008934"
+}
